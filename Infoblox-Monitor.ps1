@@ -130,7 +130,7 @@ Function CreatevRopsObject([String]$vRopsServer, $CreateRopsObject, $vRopsCreden
       <ops:resourceKindKey>InfoBloxNODE</ops:resourceKindKey>
       <ops:resourceIdentifiers>
          <ops:resourceIdentifier>
-            <ops:identifierType name="EntityName" dataType="STRING" isPartOfUniqueness="true" />
+            <ops:identifierType name="entityName" dataType="STRING" isPartOfUniqueness="true" />
             <ops:value>{0}</ops:value>
             </ops:resourceIdentifier>
       </ops:resourceIdentifiers>
@@ -148,7 +148,7 @@ $Createurl = 'https://'+$vRopsServer+'/suite-api/api/resources/adapterkinds/OPEN
 $ContentType = "application/xml;charset=utf-8"
 $header = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $header.Add("Accept", 'application/xml')
-$header.Add("X-vRealizeOps-API-use-unsupported", 'true')
+#$header.Add("X-vRealizeOps-API-use-unsupported", 'true')
  
 try {
         $result = Invoke-RestMethod -Method POST -uri $Createurl -Body $CreateXML -Credential $vRopsCredentials -ContentType $ContentType -Headers $header
